@@ -1,76 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bertrande DAGBEGNON | Academic Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bertrande DAGBEGNON – Portfolio académique</title>
+<meta name="description" content="Portfolio de Bertrande DAGBEGNON, étudiante à l’Université Cadi Ayyad, passionnée par le développement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#f8f9fa;color:#333;line-height:1.7}
-.container{max-width:900px;margin:0 auto;padding:20px}
-.hero{background:linear-gradient(135deg,#0a66c2,#004182);color:white;padding:60px 30px;text-align:center;border-radius:15px;margin:30px 0}
-.hero h1{font-size:36px;margin-bottom:10px}
-.hero p{font-size:18px;opacity:0.9}
-.card{background:white;padding:30px;border-radius:12px;margin:20px 0;box-shadow:0 4px 15px rgba(0,0,0,0.08)}
-h2{color:#0a66c2;margin-bottom:15px;border-bottom:2px solid #e8f0fe;padding-bottom:10px}
-.tag{display:inline-block;background:#e8f0fe;color:#0a66c2;padding:6px 14px;border-radius:20px;margin:5px;font-size:14px;font-weight:600}
-a{color:#0a66c2;text-decoration:none}
-a:hover{text-decoration:underline}
-.btn{display:inline-block;background:#0a66c2;color:white!important;padding:10px 20px;border-radius:25px;margin:5px;text-decoration:none!important}
+  :root {
+    --blue: #1f3bd1;
+    --saffron: #f2b632;
+    --bg: #faf8f3;
+    --surface: #ffffff;
+    --text: #1b1d2a;
+    --muted: #5c6070;
+    --line: #dedbd0;
+    --display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+    --body: "Instrument Sans", "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #11131c; --surface: #191c28; --text: #ecebe6; --muted: #9ea2b3; --line: #2b2f40; }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font: 400 1.0625rem/1.65 var(--body); }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--saffron); outline-offset: 3px; }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden; background: var(--blue); color: #fff;
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 6vw, 5rem) clamp(3rem, 8vw, 6rem);
+    min-height: 82vh; display: flex; flex-direction: column;
+  }
+  .zellige { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .16; pointer-events: none; }
+  .hero > * { position: relative; }
+  nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-weight: 500; }
+  nav .logo { font: 800 1.25rem var(--display); text-decoration: none; letter-spacing: -.02em; }
+  nav ul { display: flex; gap: 1.5rem; list-style: none; padding: 0; }
+  nav ul a { text-decoration: none; opacity: .85; }
+  nav ul a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--saffron); }
+  .hero-body { margin-top: auto; padding-top: 4rem; max-width: 62rem; }
+  .hero h1 { font: 800 clamp(3rem, 11vw, 8.5rem)/.92 var(--display); letter-spacing: -.045em; }
+  .hero h1 span { display: block; color: var(--saffron); }
+  .hero p.lead { margin-top: 1.75rem; max-width: 36rem; font-size: clamp(1.1rem, 2vw, 1.3rem); opacity: .92; }
+  .actions { margin-top: 2rem; display: flex; gap: .85rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: .85rem 1.5rem; border-radius: 999px; font-weight: 600; text-decoration: none;
+    border: 2px solid #fff; transition: transform .15s, background .15s, color .15s;
+  }
+  .btn.primary { background: var(--saffron); border-color: var(--saffron); color: #1b1d2a; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn.ghost:hover { background: #fff; color: var(--blue); }
+
+  /* Sections */
+  main { padding: 0 clamp(1.25rem, 6vw, 5rem); }
+  section {
+    display: grid; grid-template-columns: minmax(9rem, 1fr) 4fr; gap: 2rem 4rem;
+    padding: clamp(3rem, 7vw, 5.5rem) 0; border-bottom: 1px solid var(--line); max-width: 74rem; margin-inline: auto;
+  }
+  section:last-of-type { border-bottom: 0; }
+  h2 { font: 700 1.5rem/1.2 var(--display); letter-spacing: -.02em; }
+  h2::after { content: ""; display: block; width: 2.25rem; height: 4px; margin-top: .75rem; background: var(--saffron); border-radius: 2px; }
+  .content > p { max-width: 42rem; }
+  .content > p + p { margin-top: 1rem; }
+
+  .timeline { list-style: none; padding: 0; border-left: 2px solid var(--blue); margin-left: .4rem; }
+  .timeline li { position: relative; padding: 0 0 2rem 1.75rem; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before {
+    content: ""; position: absolute; left: -.6rem; top: .45rem; width: 1rem; height: 1rem; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--blue);
+  }
+  .timeline li.now::before { background: var(--saffron); border-color: var(--saffron); }
+  .timeline h3 { font: 600 1.15rem var(--display); }
+  .timeline .meta { color: var(--muted); font-size: .95rem; }
+
+  .skills { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; }
+  .skills li { padding: .45rem 1rem; border: 1.5px solid var(--blue); border-radius: 999px; font-weight: 500; }
+  @media (prefers-color-scheme: dark) { .skills li { border-color: var(--saffron); } }
+
+  .projects { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--blue);
+    padding: 1.5rem; display: flex; flex-direction: column; gap: .6rem; border-radius: 4px 4px 18px 4px;
+  }
+  .project h3 { font: 700 1.2rem var(--display); }
+  .project p { color: var(--muted); font-size: .98rem; }
+  .project .tags { margin-top: auto; padding-top: .5rem; font-size: .88rem; font-weight: 600; color: var(--blue); }
+  @media (prefers-color-scheme: dark) { .project .tags { color: var(--saffron); } }
+  .project a { font-weight: 600; text-underline-offset: 4px; }
+
+  .contact-list { list-style: none; padding: 0; display: grid; gap: .6rem; }
+  .contact-list a { font: 600 clamp(1.15rem, 3vw, 1.6rem) var(--display); text-underline-offset: 6px; text-decoration-color: var(--saffron); text-decoration-thickness: 3px; }
+  .contact-list a:hover { color: var(--blue); }
+  @media (prefers-color-scheme: dark) { .contact-list a:hover { color: var(--saffron); } }
+
+  footer { text-align: center; padding: 2rem 1rem 3rem; color: var(--muted); font-size: .9rem; }
+
+  @media (max-width: 720px) {
+    section { grid-template-columns: 1fr; gap: 1.25rem; }
+    nav ul { gap: 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
 </style>
 </head>
 <body>
-<div class="container">
-<div class="hero">
-<h1>Bertrande DAGBEGNON</h1>
-<p>Student @ Cadi Ayyad University | Academic Portfolio</p>
-<div style="margin-top:20px">
-<a href="https://github.com/Bertrande-DAGBEGNON" class="btn">GitHub</a>
-<a href="#" class="btn">LinkedIn</a>
-<a href="mailto:your-email@uca.ac.ma" class="btn">Contact Me</a>
-</div>
-</div>
 
-<div class="card">
-<h2>About Me</h2>
-<p>Welcome to my academic portfolio. I am a motivated student at Cadi Ayyad University (UCA) in Marrakech, passionate about technology, research, and continuous learning. This portfolio showcases my academic journey, skills, and projects.</p>
-</div>
+<header class="hero">
+  <svg class="zellige" aria-hidden="true">
+    <defs>
+      <pattern id="star" width="72" height="72" patternUnits="userSpaceOnUse">
+        <rect x="14" y="14" width="44" height="44" fill="none" stroke="#fff" stroke-width="1.5"/>
+        <rect x="14" y="14" width="44" height="44" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(45 36 36)"/>
+        <circle cx="36" cy="36" r="5" fill="none" stroke="#fff" stroke-width="1.5"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#star)"/>
+  </svg>
 
-<div class="card">
-<h2>Education</h2>
-<p><strong>Cadi Ayyad University (UCA)</strong> - Marrakech, Morocco<br>
-Bachelor's / Master's Degree - In Progress<br>
-Faculty of Sciences Semlalia</p>
-</div>
+  <nav>
+    <a class="logo" href="#">B. Dagbegnon</a>
+    <ul>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#formation">Formation</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<div class="card">
-<h2>Technical Skills</h2>
-<span class="tag">Git & GitHub</span>
-<span class="tag">HTML / CSS</span>
-<span class="tag">Academic Research</span>
-<span class="tag">GitHub Pages</span>
-<span class="tag">Problem Solving</span>
-<span class="tag">Teamwork</span>
-</div>
+  <div class="hero-body">
+    <h1>Bertrande <span>Dagbegnon</span></h1>
+    <p class="lead">Étudiante à l’Université Cadi Ayyad, je conçois et programme des projets web et logiciels.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projets">Voir mes projets</a>
+      <a class="btn ghost" href="https://github.com/Bertrande-DAGBEGNON" target="_blank" rel="noopener">Mon GitHub</a>
+    </div>
+  </div>
+</header>
 
-<div class="card">
-<h2>Projects</h2>
-<p><strong>Academic Portfolio Website</strong> (2026)<br>
-Designed and deployed a personal academic website using HTML, CSS and GitHub Pages. Live at bertrande-dagbegnon.github.io</p>
-</div>
+<main>
+  <section id="apropos">
+    <h2>À propos</h2>
+    <div class="content">
+      <p>Bienvenue sur mon portfolio. Je suis étudiante à l’Université Cadi Ayyad (UCA) à Marrakech, passionnée par le développement et la technologie.</p>
+      <!-- À COMPLÉTER : 2-3 phrases sur ce qui te motive et ce que tu cherches. -->
+      <p>Je recherche des opportunités de stage et de collaboration pour mettre mes compétences en pratique.</p>
+    </div>
+  </section>
 
-<div class="card">
-<h2>Contact</h2>
-<p>📍 Marrakech, Morocco<br>
-🔗 GitHub: github.com/Bertrande-DAGBEGNON<br>
-📧 Email: Replace with your UCA email<br>
-🎓 University: Cadi Ayyad University</p>
-</div>
+  <section id="formation">
+    <h2>Formation</h2>
+    <div class="content">
+      <ol class="timeline">
+        <li class="now">
+          <h3>Université Cadi Ayyad</h3>
+          <p class="meta">En cours · Marrakech, Maroc</p>
+          <!-- À COMPLÉTER : ta filière et ton année d’entrée -->
+        </li>
+        <!-- Copie un bloc <li> pour ajouter une autre formation -->
+      </ol>
+    </div>
+  </section>
 
-<div class="card" style="text-align:center;background:#0a66c2;color:white">
-<p>&copy; 2026 Bertrande DAGBEGNON - All Rights Reserved</p>
-</div>
+  <section id="competences">
+    <h2>Compétences</h2>
+    <div class="content">
+      <!-- À COMPLÉTER : garde seulement ce que tu maîtrises -->
+      <ul class="skills">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>Git &amp; GitHub</li><li>VS Code</li>
+      </ul>
+    </div>
+  </section>
 
-</div>
+  <section id="projets">
+    <h2>Projets</h2>
+    <div class="content">
+      <div class="projects">
+        <!-- À COMPLÉTER : remplace ces exemples par tes vrais projets -->
+        <article class="project">
+          <h3>Ce portfolio</h3>
+          <p>Site personnel présentant mon parcours, hébergé avec GitHub Pages.</p>
+          <span class="tags">HTML · CSS</span>
+          <a href="https://github.com/Bertrande-DAGBEGNON" target="_blank" rel="noopener">Voir le code</a>
+        </article>
+        <article class="project">
+          <h3>Projet universitaire</h3>
+          <p>Décris en une phrase le problème résolu et ton rôle.</p>
+          <span class="tags">Python · …</span>
+          <a href="#">Lien à ajouter</a>
+        </article>
+        <article class="project">
+          <h3>Projet personnel</h3>
+          <p>Une application, un jeu, un outil : montre ce que tu as construit.</p>
+          <span class="tags">JavaScript · …</span>
+          <a href="#">Lien à ajouter</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="content">
+      <p style="margin-bottom:1.25rem">Une question, une proposition de stage ou de projet ? Écrivez-moi.</p>
+      <ul class="contact-list">
+        <!-- À COMPLÉTER : ton adresse e-mail académique -->
+        <li><a href="mailto:ton.email@uca.ac.ma">ton.email@uca.ac.ma</a></li>
+        <li><a href="https://github.com/Bertrande-DAGBEGNON" target="_blank" rel="noopener">github.com/Bertrande-DAGBEGNON</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Bertrande DAGBEGNON · Portfolio académique – UCA</footer>
+
 </body>
 </html>
