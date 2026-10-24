@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bertrande DAGBEGNON – Portfolio académique</title>
-<meta name="description" content="Portfolio de Bertrande DAGBEGNON, étudiante à l’Université Cadi Ayyad, passionnée par le développement.">
+<title>Bertrande DAGBEGNON – Valorisation de la biomasse et des déchets</title>
+<meta name="description" content="Portfolio d’Ablavi Bertrande DAGBEGNON, étudiante en Master Ingénierie de Traitement et Valorisation des Déchets à l’Université Cadi Ayyad : biomasse, pyrolyse, biochar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -39,13 +39,13 @@
   .hero > * { position: relative; }
   nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-weight: 500; }
   nav .logo { font: 800 1.25rem var(--display); text-decoration: none; letter-spacing: -.02em; }
-  nav ul { display: flex; gap: 1.5rem; list-style: none; padding: 0; }
+  nav ul { display: flex; gap: 1.5rem; list-style: none; padding: 0; flex-wrap: wrap; }
   nav ul a { text-decoration: none; opacity: .85; }
   nav ul a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; text-decoration-color: var(--saffron); }
   .hero-body { margin-top: auto; padding-top: 4rem; max-width: 62rem; }
   .hero h1 { font: 800 clamp(3rem, 11vw, 8.5rem)/.92 var(--display); letter-spacing: -.045em; }
   .hero h1 span { display: block; color: var(--saffron); }
-  .hero p.lead { margin-top: 1.75rem; max-width: 36rem; font-size: clamp(1.1rem, 2vw, 1.3rem); opacity: .92; }
+  .hero p.lead { margin-top: 1.75rem; max-width: 38rem; font-size: clamp(1.1rem, 2vw, 1.3rem); opacity: .92; }
   .actions { margin-top: 2rem; display: flex; gap: .85rem; flex-wrap: wrap; }
   .btn {
     display: inline-block; padding: .85rem 1.5rem; border-radius: 999px; font-weight: 600; text-decoration: none;
@@ -67,34 +67,44 @@
   .content > p { max-width: 42rem; }
   .content > p + p { margin-top: 1rem; }
 
+  /* Frises chronologiques */
   .timeline { list-style: none; padding: 0; border-left: 2px solid var(--blue); margin-left: .4rem; }
-  .timeline li { position: relative; padding: 0 0 2rem 1.75rem; }
+  .timeline li { position: relative; padding: 0 0 2.25rem 1.75rem; }
   .timeline li:last-child { padding-bottom: 0; }
   .timeline li::before {
     content: ""; position: absolute; left: -.6rem; top: .45rem; width: 1rem; height: 1rem; border-radius: 50%;
     background: var(--bg); border: 3px solid var(--blue);
   }
   .timeline li.now::before { background: var(--saffron); border-color: var(--saffron); }
-  .timeline h3 { font: 600 1.15rem var(--display); }
-  .timeline .meta { color: var(--muted); font-size: .95rem; }
+  .timeline h3 { font: 600 1.15rem/1.3 var(--display); }
+  .timeline .meta { color: var(--muted); font-size: .95rem; margin-bottom: .5rem; }
+  .timeline ul { padding-left: 1.1rem; max-width: 44rem; }
+  .timeline ul li { padding: 0 0 .35rem; position: static; }
+  .timeline ul li::before { display: none; }
 
-  .skills { display: flex; flex-wrap: wrap; gap: .6rem; list-style: none; padding: 0; }
-  .skills li { padding: .45rem 1rem; border: 1.5px solid var(--blue); border-radius: 999px; font-weight: 500; }
-  @media (prefers-color-scheme: dark) { .skills li { border-color: var(--saffron); } }
-
-  .projects { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
-  .project {
-    background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--blue);
-    padding: 1.5rem; display: flex; flex-direction: column; gap: .6rem; border-radius: 4px 4px 18px 4px;
+  /* Distinctions */
+  .cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-top: 6px solid var(--saffron);
+    padding: 1.5rem; border-radius: 4px 4px 18px 4px;
   }
-  .project h3 { font: 700 1.2rem var(--display); }
-  .project p { color: var(--muted); font-size: .98rem; }
-  .project .tags { margin-top: auto; padding-top: .5rem; font-size: .88rem; font-weight: 600; color: var(--blue); }
-  @media (prefers-color-scheme: dark) { .project .tags { color: var(--saffron); } }
-  .project a { font-weight: 600; text-underline-offset: 4px; }
+  .card h3 { font: 700 1.2rem/1.3 var(--display); margin-bottom: .5rem; }
+  .card p { color: var(--muted); font-size: .98rem; }
+  .card .date { margin-top: .75rem; font-weight: 600; color: var(--blue); font-size: .92rem; }
+  @media (prefers-color-scheme: dark) { .card .date { color: var(--saffron); } }
 
+  /* Compétences */
+  .skill-group + .skill-group { margin-top: 1.75rem; }
+  .skill-group h3 { font: 600 1.1rem var(--display); margin-bottom: .7rem; }
+  .skills { display: flex; flex-wrap: wrap; gap: .55rem; list-style: none; padding: 0; }
+  .skills li { padding: .4rem .95rem; border: 1.5px solid var(--blue); border-radius: 999px; font-weight: 500; font-size: .97rem; }
+  @media (prefers-color-scheme: dark) { .skills li { border-color: var(--saffron); } }
+  .langs { margin-top: 2rem; display: flex; gap: 2.5rem; flex-wrap: wrap; }
+  .langs strong { font-family: var(--display); }
+
+  /* Contact */
   .contact-list { list-style: none; padding: 0; display: grid; gap: .6rem; }
-  .contact-list a { font: 600 clamp(1.15rem, 3vw, 1.6rem) var(--display); text-underline-offset: 6px; text-decoration-color: var(--saffron); text-decoration-thickness: 3px; }
+  .contact-list a { font: 600 clamp(1.1rem, 3vw, 1.55rem) var(--display); text-underline-offset: 6px; text-decoration-color: var(--saffron); text-decoration-thickness: 3px; overflow-wrap: anywhere; }
   .contact-list a:hover { color: var(--blue); }
   @media (prefers-color-scheme: dark) { .contact-list a:hover { color: var(--saffron); } }
 
@@ -110,6 +120,7 @@
 <body>
 
 <header class="hero">
+  <!-- Motif zellige (étoile à 8 branches) -->
   <svg class="zellige" aria-hidden="true">
     <defs>
       <pattern id="star" width="72" height="72" patternUnits="userSpaceOnUse">
@@ -126,17 +137,19 @@
     <ul>
       <li><a href="#apropos">À propos</a></li>
       <li><a href="#formation">Formation</a></li>
-      <li><a href="#projets">Projets</a></li>
+      <li><a href="#experience">Expérience</a></li>
+      <li><a href="#distinctions">Distinctions</a></li>
+      <li><a href="#competences">Compétences</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <div class="hero-body">
     <h1>Bertrande <span>Dagbegnon</span></h1>
-    <p class="lead">Étudiante à l’Université Cadi Ayyad, je conçois et programme des projets web et logiciels.</p>
+    <p class="lead">Étudiante en Master d’excellence, Ingénierie de Traitement et Valorisation des Déchets. Biomasse, pyrolyse et biocarbones.</p>
     <div class="actions">
-      <a class="btn primary" href="#projets">Voir mes projets</a>
-      <a class="btn ghost" href="https://github.com/Bertrande-DAGBEGNON" target="_blank" rel="noopener">Mon GitHub</a>
+      <a class="btn primary" href="#experience">Voir mon parcours</a>
+      <a class="btn ghost" href="CV_Dagbegnon.pdf" target="_blank" rel="noopener">Télécharger mon CV</a>
     </div>
   </div>
 </header>
@@ -145,9 +158,8 @@
   <section id="apropos">
     <h2>À propos</h2>
     <div class="content">
-      <p>Bienvenue sur mon portfolio. Je suis étudiante à l’Université Cadi Ayyad (UCA) à Marrakech, passionnée par le développement et la technologie.</p>
-      <!-- À COMPLÉTER : 2-3 phrases sur ce qui te motive et ce que tu cherches. -->
-      <p>Je recherche des opportunités de stage et de collaboration pour mettre mes compétences en pratique.</p>
+      <p>Je suis étudiante en 2<sup>e</sup> année de Master d’excellence à l’Université Cadi Ayyad (Marrakech). J’ai développé une solide expertise en valorisation de la biomasse et une première pratique de la pyrolyse, avec la production de biochar.</p>
+      <p>Rigoureuse et autonome au laboratoire, je recherche un stage de PFE en biocarbone et stockage de l’énergie, autour de la production et de la caractérisation de composites biosourcés.</p>
     </div>
   </section>
 
@@ -156,48 +168,96 @@
     <div class="content">
       <ol class="timeline">
         <li class="now">
-          <h3>Université Cadi Ayyad</h3>
-          <p class="meta">En cours · Marrakech, Maroc</p>
-          <!-- À COMPLÉTER : ta filière et ton année d’entrée -->
+          <h3>Master d’excellence en Ingénierie de Traitement et Valorisation des Déchets</h3>
+          <p class="meta">Sept. 2025 – présent · Université Cadi Ayyad, Marrakech</p>
         </li>
-        <!-- Copie un bloc <li> pour ajouter une autre formation -->
+        <li>
+          <h3>Licence d’excellence en Technologies de Traitement et de Valorisation des Déchets</h3>
+          <p class="meta">Sept. 2024 – Juin 2025 · Université Cadi Ayyad, Marrakech</p>
+        </li>
+        <li>
+          <h3>DEUG Sciences de la Vie</h3>
+          <p class="meta">Sept. 2022 – Juin 2024 · Université Cadi Ayyad, Marrakech</p>
+        </li>
       </ol>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Expérience en recherche appliquée</h2>
+    <div class="content">
+      <ol class="timeline">
+        <li class="now">
+          <h3>Projet de Master : valorisation d’huiles usagées et de biochar</h3>
+          <p class="meta">Oct. 2026 – présent · Laboratoire BIOMAGE, Université Cadi Ayyad</p>
+          <ul>
+            <li>Production de biochar par pyrolyse de coques de noix de coco (lavage, séchage, broyage, pyrolyse).</li>
+            <li>Filtration d’huiles de friture usagées sur papier, puis sur biochar, avant transestérification.</li>
+            <li>Production de biodiesel (FAME) puis de biolubrifiant (ester d’éthylène glycol), avec suivi qualité : indice d’acidité, viscosité, FTIR.</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Technicienne de recherche : valorisation de biomasse et caractérisation</h3>
+          <p class="meta">Juin – Juil. 2026 · Laboratoire IMED-LAB, FST Marrakech, UCA</p>
+          <ul>
+            <li>Valorisation de résidus lignocellulosiques (palmier dattier) en matériau biosourcé, caractérisé par FTIR.</li>
+            <li>Suivi rigoureux des paramètres réactionnels et quantification du taux de transformation (3,84 mmol/g).</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Chargée de projet en valorisation de déchets solides</h3>
+          <p class="meta">Juil. – Août 2025 · GSS (Green Souss Solution), Agadir</p>
+          <ul>
+            <li>Étude de faisabilité technico-économique d’une unité de pyrolyse : modélisation CAPEX/OPEX (investissement de 52 M MAD).</li>
+            <li>Caractérisation physico-chimique des produits de pyrolyse et bilans de masse.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="distinctions">
+    <h2>Distinctions</h2>
+    <div class="content">
+      <div class="cards">
+        <article class="card">
+          <h3>Grand Prix « coup de cœur »</h3>
+          <p>Hackathon International de l’Eau UNESCO, Montpellier (France). Projet « TerraHydra ».</p>
+          <p class="date">Février 2026</p>
+        </article>
+        <article class="card">
+          <h3>2<sup>e</sup> Prix</h3>
+          <p>Hackathon National de l’Eau, Université Cadi Ayyad, Marrakech. Projet « OleaCircular ».</p>
+          <p class="date">Décembre 2025</p>
+        </article>
+      </div>
     </div>
   </section>
 
   <section id="competences">
     <h2>Compétences</h2>
     <div class="content">
-      <!-- À COMPLÉTER : garde seulement ce que tu maîtrises -->
-      <ul class="skills">
-        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>Git &amp; GitHub</li><li>VS Code</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="projets">
-    <h2>Projets</h2>
-    <div class="content">
-      <div class="projects">
-        <!-- À COMPLÉTER : remplace ces exemples par tes vrais projets -->
-        <article class="project">
-          <h3>Ce portfolio</h3>
-          <p>Site personnel présentant mon parcours, hébergé avec GitHub Pages.</p>
-          <span class="tags">HTML · CSS</span>
-          <a href="https://github.com/Bertrande-DAGBEGNON" target="_blank" rel="noopener">Voir le code</a>
-        </article>
-        <article class="project">
-          <h3>Projet universitaire</h3>
-          <p>Décris en une phrase le problème résolu et ton rôle.</p>
-          <span class="tags">Python · …</span>
-          <a href="#">Lien à ajouter</a>
-        </article>
-        <article class="project">
-          <h3>Projet personnel</h3>
-          <p>Une application, un jeu, un outil : montre ce que tu as construit.</p>
-          <span class="tags">JavaScript · …</span>
-          <a href="#">Lien à ajouter</a>
-        </article>
+      <div class="skill-group">
+        <h3>Pyrolyse et valorisation de biomasse</h3>
+        <ul class="skills">
+          <li>Production de biochar</li><li>Biomasses lignocellulosiques</li><li>Bioprocédés et bioénergie</li><li>Procédés industriels</li><li>Efficacité énergétique</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Caractérisation et analyses instrumentales</h3>
+        <ul class="skills">
+          <li>Analyse élémentaire</li><li>ICP</li><li>ATG</li><li>FTIR</li><li>Raman</li><li>MEB</li><li>Pycnométrie</li><li>Bonnes Pratiques de Laboratoire</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h3>Analyse de données et outils numériques</h3>
+        <ul class="skills">
+          <li>RStudio</li><li>Python</li><li>Excel avancé</li><li>OpenLCA</li><li>MATLAB</li><li>OriginPro</li><li>QGIS</li><li>Zotero</li>
+        </ul>
+      </div>
+      <div class="langs">
+        <p><strong>Français</strong> : C1 (avancé)</p>
+        <p><strong>Anglais</strong> : B2 (intermédiaire avancé)</p>
       </div>
     </div>
   </section>
@@ -205,17 +265,18 @@
   <section id="contact">
     <h2>Contact</h2>
     <div class="content">
-      <p style="margin-bottom:1.25rem">Une question, une proposition de stage ou de projet ? Écrivez-moi.</p>
+      <p style="margin-bottom:1.25rem">Une question, une proposition de stage ou de collaboration ? Écrivez-moi.</p>
       <ul class="contact-list">
-        <!-- À COMPLÉTER : ton adresse e-mail académique -->
-        <li><a href="mailto:ton.email@uca.ac.ma">ton.email@uca.ac.ma</a></li>
+        <li><a href="mailto:a.dagbegnon0152@uca.ac.ma">a.dagbegnon0152@uca.ac.ma</a></li>
+        <!-- À COMPLÉTER : remplace par l’adresse de ton profil LinkedIn -->
+        <li><a href="https://www.linkedin.com/in/TON-PROFIL" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://github.com/Bertrande-DAGBEGNON" target="_blank" rel="noopener">github.com/Bertrande-DAGBEGNON</a></li>
       </ul>
     </div>
   </section>
 </main>
 
-<footer>© 2026 Bertrande DAGBEGNON · Portfolio académique – UCA</footer>
+<footer>© 2026 Ablavi Bertrande DAGBEGNON · Université Cadi Ayyad, Marrakech</footer>
 
 </body>
 </html>
